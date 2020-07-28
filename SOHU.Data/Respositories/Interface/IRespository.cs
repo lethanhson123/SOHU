@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SOHU.Data.Models;
 
-namespace SOHU.Data.Respositories.Interface
+namespace SOHU.Data.Respositories
 {
     public interface IRespository<T> where T : BaseModel
     {

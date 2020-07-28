@@ -139,5 +139,14 @@ namespace SOHU.Data.Helpers
                 return builder.Build().GetSection("AppSettings").GetSection("SitemapFTP").Value;
             }
         }
+
+        public static string CMSTitle
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("CMSTitle").Value;
+            }
+        }
     }
 }
