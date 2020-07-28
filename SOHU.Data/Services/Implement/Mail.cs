@@ -10,7 +10,7 @@ using System.Web;
 using System.Net.Mail;
 
 
-namespace SOHU.Services
+namespace SOHU.Services.Implement
 {
     public class Mail
     {
