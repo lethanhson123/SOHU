@@ -28,7 +28,7 @@ namespace SOHU.Data.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Persist Security Info=True;User ID=sa;Password=0;database=SOHU;data source=DESKTOP-MVF3K0S\\SQLEXPRESS01");
+                optionsBuilder.UseSqlServer(SOHU.Data.Helpers.AppGlobal.ConectionString);
             }
         }
 
@@ -44,8 +44,8 @@ namespace SOHU.Data.Models
 
                 entity.Property(e => e.CodenameSub).HasMaxLength(4000);
 
-                entity.Property(e => e.Config1)
-                    .HasColumnName("Config")
+                entity.Property(e => e.GroupName)
+                    .HasColumnName("GroupName")
                     .HasMaxLength(4000);
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");

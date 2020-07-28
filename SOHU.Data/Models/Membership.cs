@@ -3,16 +3,9 @@ using System.Collections.Generic;
 
 namespace SOHU.Data.Models
 {
-    public partial class Membership
+    public partial class Membership : BaseModel
     {
-        public int Id { get; set; }
-        public int? UserCreated { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public int? UserUpdated { get; set; }
-        public DateTime? DateUpdated { get; set; }
-        public int? ParentId { get; set; }
-        public string Note { get; set; }
-        public bool? Active { get; set; }
+       
         public string FullName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
