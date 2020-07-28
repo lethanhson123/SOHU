@@ -148,5 +148,14 @@ namespace SOHU.Data.Helpers
                 return builder.Build().GetSection("AppSettings").GetSection("CMSTitle").Value;
             }
         }
+
+        public static string MD5Key
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("MD5Key").Value;
+            }
+        }
     }
 }
