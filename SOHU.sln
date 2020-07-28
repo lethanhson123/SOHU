@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHU", "SOHU\SOHU.csproj", "{9F950FAD-425A-4AD1-8D02-AEC9B2A4CEF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHU.Data", "SOHU.Data\SOHU.Data.csproj", "{45AFC0E2-EFEA-450C-9468-B0D7A4EC674B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHU.MVC", "SOHU.MVC\SOHU.MVC.csproj", "{99D48E92-E25A-40C0-9207-DFF79A806770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9F950FAD-425A-4AD1-8D02-AEC9B2A4CEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F950FAD-425A-4AD1-8D02-AEC9B2A4CEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F950FAD-425A-4AD1-8D02-AEC9B2A4CEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F950FAD-425A-4AD1-8D02-AEC9B2A4CEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AFC0E2-EFEA-450C-9468-B0D7A4EC674B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AFC0E2-EFEA-450C-9468-B0D7A4EC674B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AFC0E2-EFEA-450C-9468-B0D7A4EC674B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AFC0E2-EFEA-450C-9468-B0D7A4EC674B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D48E92-E25A-40C0-9207-DFF79A806770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D48E92-E25A-40C0-9207-DFF79A806770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D48E92-E25A-40C0-9207-DFF79A806770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D48E92-E25A-40C0-9207-DFF79A806770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
