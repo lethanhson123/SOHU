@@ -12,9 +12,9 @@ namespace SOHU.MVC.Controllers
 {
     public class ConfigController : BaseController
     {
-        private readonly IConfigResposistory _configResposistory;
+        private readonly IConfigRespository _configResposistory;
 
-        public ConfigController(IConfigResposistory configResposistory)
+        public ConfigController(IConfigRespository configResposistory)
         {
             _configResposistory = configResposistory;
         }

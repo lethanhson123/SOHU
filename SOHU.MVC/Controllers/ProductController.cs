@@ -12,9 +12,9 @@ namespace SOHU.MVC.Controllers
 {
     public class ProductController : BaseController
     {
-        private readonly IProductResposistory _productResposistory;
+        private readonly IProductRespository _productResposistory;
 
-        public ProductController(IProductResposistory productResposistory)
+        public ProductController(IProductRespository productResposistory)
         {
             _productResposistory = productResposistory;
         }

@@ -4,17 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
+using SOHU.Data.Models;
 using SOHU.Data.Respositories;
 using SOHU.MVC.Models;
 
 namespace SOHU.MVC.Controllers
 {
-    public class MembershipController : Controller
+    public class MembershipController : BaseController
     {
-        private readonly IMembershipResposistory _resposistory;
+        private readonly IMembershipRespository _resposistory;
 
-        public MembershipController(IMembershipResposistory resposistory)
+        public MembershipController(IMembershipRespository resposistory)
         {
             _resposistory = resposistory;
         }
@@ -24,9 +26,20 @@ namespace SOHU.MVC.Controllers
             return View();
         }
 
+        public IActionResult Detail(int ID)
+        {
+            var model = _resposistory.GetByID(ID) ?? new Membership();
+            return View(model);
+        }
+
         public IActionResult Login()
         {
             return View();
+        }
+
+        public IActionResult GetAllToList()
+        {
+            return Json(_resposistory.GetAllToList());
         }
 
         public IActionResult ValidUser(UserLoginViewModel model)
@@ -48,6 +61,43 @@ namespace SOHU.MVC.Controllers
             {
                 return Json(AppGlobal.Fail + " - " + AppGlobal.LoginFail);
             }    
+        }
+
+        public IActionResult SaveChange(Membership model)
+        {
+            string note = AppGlobal.InitString;
+            int result = 0;
+            if (model.Id > 0)
+            {
+                model.Initialization(InitType.Update, RequestUserID);
+                model.ConcatFullname();
+                result = _resposistory.Update(model.Id, model);
+                if (result > 0)
+                {
+                    note = AppGlobal.Success + " - " + AppGlobal.EditSuccess;
+                }
+                else
+                {
+                    note = AppGlobal.Success + " - " + AppGlobal.EditFail;
+                }
+            }
+            else
+            {
+                model.Initialization(InitType.Insert, RequestUserID);
+                model.ConcatFullname();
+                model.InitDefaultValue();
+                model.EncryptPassword();
+                result = _resposistory.Create(model);
+                if (result > 0)
+                {
+                    note = AppGlobal.Success + " - " + AppGlobal.CreateSuccess;
+                }
+                else
+                {
+                    note = AppGlobal.Success + " - " + AppGlobal.CreateFail;
+                }
+            }
+            return Json(note);
         }
     }
 }

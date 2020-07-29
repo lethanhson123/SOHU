@@ -12,9 +12,9 @@ namespace SOHU.MVC.Controllers
 {
     public class InvoiceDetailDetailController : BaseController
     {
-        private readonly IInvoiceDetailResposistory _invoiceDetailResposistory;
+        private readonly IInvoiceDetailRespository _invoiceDetailResposistory;
 
-        public InvoiceDetailDetailController(IInvoiceDetailResposistory invoiceDetailResposistory)
+        public InvoiceDetailDetailController(IInvoiceDetailRespository invoiceDetailResposistory)
         {
             _invoiceDetailResposistory = invoiceDetailResposistory;
         }

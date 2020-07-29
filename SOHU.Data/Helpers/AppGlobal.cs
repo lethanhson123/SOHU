@@ -8,12 +8,18 @@ namespace SOHU.Data.Helpers
 {
     public class AppGlobal
     {
+        #region Init
         public static DateTime InitDateTime => DateTime.Now;
 
         public static string InitString => string.Empty;
 
         public static string DateTimeCode => DateTime.Now.ToString("ddMMyyyyHHmmsstt");
 
+        public static string InitGuiCode => Guid.NewGuid().ToString();
+        #endregion
+
+
+        #region AppSettings 
         public static string EditSuccess
         {
             get
@@ -157,5 +163,6 @@ namespace SOHU.Data.Helpers
                 return builder.Build().GetSection("AppSettings").GetSection("MD5Key").Value;
             }
         }
+        #endregion
     }
 }
