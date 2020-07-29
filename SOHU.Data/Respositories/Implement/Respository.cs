@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOHU.Data.Respositories.Implement
+namespace SOHU.Data.Respositories
 {
     public class Respository<T> : IRespository<T> where T : BaseModel
     {
