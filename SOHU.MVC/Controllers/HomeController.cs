@@ -33,5 +33,20 @@ namespace SOHU.MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
+        public IActionResult ProductDetail (int ProductID)
+        {
+            return View();
+        }
+
+        public IActionResult ProductList (int CategoryID)
+        {
+            return View();
+        }
     }
 }
