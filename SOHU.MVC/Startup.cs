@@ -70,7 +70,7 @@ namespace SOHU.MVC
                 endpoints.MapControllerRoute(
                     name: "ProductDetail",
                     pattern: "{MetaTitle}-{ProductID}.html",
-                    defaults: new { controller = "Home", action = "Detail" });
+                    defaults: new { controller = "Home", action = "ProductDetail" });
 
                 endpoints.MapControllerRoute(
                     name: "About",

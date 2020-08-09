@@ -6,23 +6,28 @@
 <link rel="stylesheet" href="~/css/theme-shop.css">
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
 <div>
-    <div class="row equal">
+    <div class="row">
         @{
             if (Model != null)
             {
                 foreach (var item in Model)
                 {
-                <div class="col-md-3" style="height:100%;">
+                <div class="col-md-3">
                     @{
-                        var url = item.MetaTitle + "-" + item.Id;
+                        var url = item.MetaTitle + "-" + item.Id + ".html";
                     }
-                    <div class="card-group">
-                        <div class="card h-100">
+                    <div class="card card-body h-100">
+                        <a href="@url">
                             <img class="card-img-top" src="@item.Image" alt="@item.Title">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.Title</h5>
-                                <p class="card-text text-primary h5">@item.Price?.ToString("N2")</p>
-                                <a asp-action="Create" asp-controller="Cart" class="btn btn-primary">Add to cart</a>
+                        </a>
+                        <div class="card-body">
+                            <a href="@url"><h5 class="card-title">@item.Title</h5></a>
+                            <p class="card-text text-primary h5">@item.Price?.ToString("N2")</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <a asp-action="Create" asp-controller="Cart" class="col-6 w-90 p-1 btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <a href="@url" class="col-6 w-90 btn btn-success p-1"><i class="fas fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +36,7 @@
             }
         }
     </div>
-    <div class="row">
+    <div class="row py-2">
         <div class="col">
             <ul class="pagination float-right">
                 <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>

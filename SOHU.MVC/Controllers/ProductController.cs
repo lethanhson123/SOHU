@@ -125,5 +125,17 @@ namespace SOHU.MVC.Controllers
             var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
             return PartialView("~/Views/Product/_List.cshtml", model);
         }
+
+        public IActionResult TopProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
+        }
+
+        public IActionResult SaleProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
+        }
     }
 }
