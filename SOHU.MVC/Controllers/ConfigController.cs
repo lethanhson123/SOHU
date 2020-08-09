@@ -127,5 +127,10 @@ namespace SOHU.MVC.Controllers
             var result = data.GenerateTree(item => item.Id, item => item.ParentId);
             return Json(data.GenerateTree(item => item.Id, Item => Item.ParentId));
         }
+
+        public IActionResult GetByCodeToList(string Code)
+        {
+            return Json(_configResposistory.GetByCodeToList(Code));
+        }
     }
 }

@@ -288,6 +288,24 @@ namespace SOHU.Data.Helpers
                 return int.Parse(builder.Build().GetSection("AppSettings").GetSection("ProductPageSize").Value);
             }
         }
+
+        public static string CategoryCode
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("CategoryCode").Value;
+            }
+        }
+
+        public static string PriceUnit
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("PriceUnit").Value;
+            }
+        }
         #endregion
     }
 }

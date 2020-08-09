@@ -17,11 +17,15 @@
         <div id="NewProduct">
             <h3 class="text-primary"><b>NEW PRODUCTS</b></h3>
         </div>
-        <div id="TopProduct">
-
+    </div>
+    <div class="row">
+        <div id="TopProduct" class="d-block">
+            <h3 class="text-primary"><b>TOP PRODUCTS</b></h3>
         </div>
-        <div id="DealProduct">
-
+    </div>
+    <div class="row">
+        <div id="SaleProduct" class="d-block">
+            <h3 class="text-primary"><b>SALE PRODUCTS</b></h3>
         </div>
     </div>
 </div>
@@ -42,6 +46,32 @@
             success: (res) => {
                 $("#NewProduct").append(res);
             }
-        })
+        });
+    }
+
+    function GetTopProducts() {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("TopProducts","Product")",
+            data: {
+                PageSize: @AppGlobal.ProductPageSize,
+            },
+            success: (res) => {
+                $("#TopProduct").append(res);
+            }
+        });
+    }
+
+    function GetSaleProducts() {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("SaleProducts","Product")",
+            data: {
+                PageSize: @AppGlobal.ProductPageSize,
+            },
+            success: (res) => {
+                $("#SaleProduct").append(res);
+            }
+        });
     }
 </script>

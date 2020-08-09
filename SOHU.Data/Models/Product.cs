@@ -5,7 +5,6 @@ namespace SOHU.Data.Models
 {
     public partial class Product : BaseModel
     {
-       
         public int? CategoryId { get; set; }
         public string Title { get; set; }
         public string Urlcode { get; set; }
@@ -18,5 +17,7 @@ namespace SOHU.Data.Models
         public string ImageThumbnail { get; set; }
         public string Description { get; set; }
         public string ContentMain { get; set; }
+        public decimal? Price { get; set; }
+        public int? PriceUnitID { get; set; }
     }
 }

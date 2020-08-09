@@ -3,6 +3,9 @@
     Layout = "~/Views/Shared/_CMSLayout.cshtml";
 }
 @model SOHU.Data.Models.Product
+@using SOHU.Data.Helpers
+@using SOHU.Data.Models
+@using SOHU.Data.DataTransferObject
 <script src="~/ckeditor/ckeditor.js"></script>
 <section class="content-header">
     <div class="container-fluid">
@@ -42,8 +45,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Group name</label>
-                                    @Html.TextBoxFor(Model => Model.Title, new { @class = "form-control", placeholder = "Group name" })
+                                    <label for="name">Title</label>
+                                    @Html.TextBoxFor(Model => Model.Title, new { @class = "form-control", placeholder = "Title" })
                                 </div>
                                 <div class="form-group">
                                     <label>Category</label>
@@ -57,7 +60,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Note</label>
-                                    @Html.TextBoxFor(Model => Model.Note, new { @class = "form-control", placeholder = "Meta title" })
+                                    @Html.TextBoxFor(Model => Model.Note, new { @class = "form-control", placeholder = "Note" })
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Image</label>
@@ -65,6 +68,10 @@
                                         @Html.TextBoxFor(Model => Model.Image, new { @class = "form-control", placeholder = "Image" })
                                         <a class="btn btn-primary w-100 text-white ml-2" style="flex-basis: 20%;" id="BrowserImage"><i class="fas fa-folder-open"></i></a>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Price</label>
+                                    @Html.TextBoxFor(Model => Model.Price, new { @class = "form-control", placeholder = "Price" })
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -90,6 +97,10 @@
                                         @Html.TextBoxFor(Model => Model.ImageThumbnail, new { @class = "form-control", placeholder = "Image thumbnail" })
                                         <a class="btn btn-primary w-100 text-white ml-2" style="flex-basis: 20%;" id="BrowserImageThumbnail"><i class="fas fa-folder-open"></i></a>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price unit</label>
+                                    <select id="PriceUnitID" data-selected="@Model.PriceUnitID" asp-for="PriceUnitID" class="form-control select2" style="width: 100%;"></select>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +129,9 @@
 <script>
     $(document).ready(() => {
         $('#CategoryId').select2({
+            theme: 'bootstrap4',
+        });
+        $('#PriceUnitID').select2({
             theme: 'bootstrap4',
         });
     })
@@ -170,9 +184,32 @@
     $(document).ready(() => {
         $.ajax({
             type: 'GET',
-            url: "@Url.Action("GetAllToList", "Config")",
+            url: "@Url.Action("GetByCodeToList", "Config")",
+            data: {
+                Code: '@AppGlobal.CategoryCode',
+            },
             success: (res) => {
                 let dropDown = $('#CategoryId');
+                let selectID = $(dropDown).attr('data-selected');
+                $.each(res, (index, item) => {
+                    if (item.Id == selectID) {
+                        dropDown.append("<option value='" + item.Id + "' selected>" + item.CodeName + "</option>");
+                    }
+                    else {
+                        dropDown.append("<option value='" + item.Id + "'>" + item.CodeName + "</option>");
+                    }
+                });
+            }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("GetByCodeToList", "Config")",
+            data: {
+                Code: '@AppGlobal.PriceUnit',
+            },
+            success: (res) => {
+                let dropDown = $('#PriceUnitID');
                 let selectID = $(dropDown).attr('data-selected');
                 $.each(res, (index, item) => {
                     if (item.Id == selectID) {
