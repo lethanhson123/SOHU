@@ -1,6 +1,7 @@
 ﻿using SOHU.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SOHU.Data.Respositories
@@ -14,6 +15,9 @@ namespace SOHU.Data.Respositories
             _context = context;
         }
 
-
+        public List<Config> GetByCodeToList(string Code)
+        {
+            return _context.Config.Where(item => item.Code.Equals(Code)).ToList();
+        }
     }
 }

@@ -1,4 +1,47 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home page - ";
 }
+@using SOHU.Data.DataTransferObject
+@using SOHU.Data.Models
+@using SOHU.Data.Respositories
+@using SOHU.Data.Helpers
+@inject IConfigRespository _configRespository
+<div class="container-fluid px-0">
+    @{
+        var carousel = _configRespository.GetByCodeToList(AppGlobal.CarouselCode);
+        @Html.Partial("~/views/Home/_Carousel.cshtml", carousel);
+    }
+</div>
+<div class="container py-2">
+    <div class="row">
+        <div id="NewProduct">
+            <h3 class="text-primary"><b>NEW PRODUCTS</b></h3>
+        </div>
+        <div id="TopProduct">
 
+        </div>
+        <div id="DealProduct">
+
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+
+    $(document).ready(() => {
+        GetNewProducts();
+    });
+
+    function GetNewProducts() {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("NewProducts","Product")",
+            data: {
+                PageSize: @AppGlobal.ProductPageSize,
+            },
+            success: (res) => {
+                $("#NewProduct").append(res);
+            }
+        })
+    }
+</script>

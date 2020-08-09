@@ -119,5 +119,11 @@ namespace SOHU.MVC.Controllers
             }
             return Json(note);
         }
+
+        public IActionResult NewProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
+        }
     }
 }

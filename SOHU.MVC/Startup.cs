@@ -68,6 +68,16 @@ namespace SOHU.MVC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "ProductDetail",
+                    pattern: "{MetaTitle}-{ProductID}.html",
+                    defaults: new { controller = "Home", action = "Detail" });
+
+                endpoints.MapControllerRoute(
+                    name: "About",
+                    pattern: "about.html",
+                    defaults: new { controller = "Home", action = "About" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
