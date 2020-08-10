@@ -2,6 +2,7 @@
 using SOHU.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace SOHU.Data.Helpers
@@ -23,5 +24,26 @@ namespace SOHU.Data.Helpers
             }
             return model;
         }
+
+        public static Dictionary<string, string> ToDictionaryStringString(this object obj)
+        {
+            if (obj != null)
+            {
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                PropertyInfo[] props = obj.GetType().GetProperties();
+                foreach (var prop in props)
+                {
+                    result.Add(prop.Name, prop.GetValue(obj)?.ToString());
+                }
+                return result;
+            }
+            return null;
+        }
+
+        public static T MapTo<T>(this object obj)
+        {
+            var result = Activator.CreateInstance<T>();
+            return result;
+        }    
     }
 }

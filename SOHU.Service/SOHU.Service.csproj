@@ -5,9 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mail\" />
     <Folder Include="Notification\" />
     <Folder Include="SMS\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SOHU.Data\SOHU.Data.csproj" />
   </ItemGroup>
 
 </Project>
