@@ -151,6 +151,9 @@
     });
 
     function onSaveChange() {
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         $.ajax({
             type: 'POST',
             url: "@Url.Action("SaveChange","Product")",

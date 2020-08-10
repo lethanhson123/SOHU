@@ -5,21 +5,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SOHU.Data.Respositories;
+using SOHU.Data.Helpers;
+using SOHU.Data.Repositories;
 using SOHU.MVC.Models;
 
 namespace SOHU.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRespository _productRespository;
+        private readonly IProductRepository _productRespository;
+
+        private readonly IConfigRepository _configRepository;
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IProductRespository productRespository)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRespository, IConfigRepository configRepository)
         {
             _logger = logger;
             _productRespository = productRespository;
+            _configRepository = configRepository;
         }
 
         public IActionResult Index()
@@ -45,13 +49,19 @@ namespace SOHU.MVC.Controllers
 
         public IActionResult ProductDetail (int ProductID)
         {
-            var model = _productRespository.GetByID(ProductID);
+            var model = _productRespository.GetDataTransferByID(ProductID);
             return View(model);
         }
 
         public IActionResult ProductList (int CategoryID)
         {
             return View();
+        }
+
+        public IActionResult Tag()
+        {
+            var model = _configRepository.GetByCodeToList(AppGlobal.TagCode);
+            return PartialView("~/Views/Home/_Tag.cshtml", model);
         }
     }
 }

@@ -7,15 +7,15 @@ using SOHU.Data.Enum;
 using SOHU.Data.Extensions;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC.Controllers
 {
     public class ConfigController : BaseController
     {
-        private readonly IConfigRespository _configResposistory;
+        private readonly IConfigRepository _configResposistory;
 
-        public ConfigController(IConfigRespository configResposistory)
+        public ConfigController(IConfigRepository configResposistory)
         {
             _configResposistory = configResposistory;
         }

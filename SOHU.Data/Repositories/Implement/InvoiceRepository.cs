@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public class InvoiceRespository : Respository<Invoice>, IInvoiceRespository
+    public class InvoiceRepository : Repository<Invoice>, IInvoiceRepository
     {
         private readonly SOHUContext _context;
 
-        public InvoiceRespository(SOHUContext context) : base(context)
+        public InvoiceRepository(SOHUContext context) : base(context)
         {
             _context = context;
         }

@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC.Controllers
 {
     public class MembershipPaymentController : BaseController
     {
-        private readonly IMembershipPaymentRespository _menbershipPaymentResposistory;
+        private readonly IMembershipPaymentRepository _menbershipPaymentResposistory;
 
-        public MembershipPaymentController(IMembershipPaymentRespository menbershipPaymentResposistory)
+        public MembershipPaymentController(IMembershipPaymentRepository menbershipPaymentResposistory)
         {
             _menbershipPaymentResposistory = menbershipPaymentResposistory;
         }

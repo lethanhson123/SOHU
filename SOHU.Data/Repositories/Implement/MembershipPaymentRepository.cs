@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public class MembershipPaymentRespository : Respository<MembershipPayment>, IMembershipPaymentRespository
+    public class MembershipPaymentRepository : Repository<MembershipPayment>, IMembershipPaymentRepository
     {
         private readonly SOHUContext _context;
 
-        public MembershipPaymentRespository(SOHUContext context) : base(context)
+        public MembershipPaymentRepository(SOHUContext context) : base(context)
         {
             _context = context;
         }

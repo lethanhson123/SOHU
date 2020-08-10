@@ -43,6 +43,14 @@ namespace SOHU.Data.Helpers
         public static T MapTo<T>(this object obj)
         {
             var result = Activator.CreateInstance<T>();
+            if (obj != null)
+            {
+                PropertyInfo[] props = result.GetType().GetProperties();
+                foreach (var prop in props)
+                {
+                    prop.SetValue(result, prop.GetValue(obj));
+                }
+            }
             return result;
         }    
     }

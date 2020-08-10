@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC.Controllers
 {
     public class ProductController : BaseController
     {
-        private readonly IProductRespository _productResposistory;
+        private readonly IProductRepository _productResposistory;
 
-        public ProductController(IProductRespository productResposistory)
+        public ProductController(IProductRepository productResposistory)
         {
             _productResposistory = productResposistory;
         }

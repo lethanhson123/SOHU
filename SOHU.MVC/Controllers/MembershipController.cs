@@ -7,16 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 using SOHU.MVC.Models;
 
 namespace SOHU.MVC.Controllers
 {
     public class MembershipController : BaseController
     {
-        private readonly IMembershipRespository _resposistory;
+        private readonly IMembershipRepository _resposistory;
 
-        public MembershipController(IMembershipRespository resposistory)
+        public MembershipController(IMembershipRepository resposistory)
         {
             _resposistory = resposistory;
         }

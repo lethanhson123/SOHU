@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC.Controllers
 {
     public class ProductConfigController : BaseController
     {
-        private readonly IProductConfigRespository _productConfigResposistory;
+        private readonly IProductConfigRepository _productConfigResposistory;
 
-        public ProductConfigController(IProductConfigRespository productConfigResposistory)
+        public ProductConfigController(IProductConfigRepository productConfigResposistory)
         {
             _productConfigResposistory = productConfigResposistory;
         }
@@ -118,6 +118,12 @@ namespace SOHU.MVC.Controllers
                 }
             }
             return Json(note);
+        }
+
+        public IActionResult ProductInfor(int ProductID)
+        {
+            var model = _productConfigResposistory.GetDataTransfersByProductIDToList(ProductID);
+            return PartialView("~/Views/ProductConfig/_ProductInfor.cshtml", model);
         }
     }
 }
