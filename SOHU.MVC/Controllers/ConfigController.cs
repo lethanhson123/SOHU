@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
+using SOHU.Data.Extensions;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
 using SOHU.Data.Respositories;
@@ -12,9 +13,9 @@ namespace SOHU.MVC.Controllers
 {
     public class ConfigController : BaseController
     {
-        private readonly IConfigResposistory _configResposistory;
+        private readonly IConfigRespository _configResposistory;
 
-        public ConfigController(IConfigResposistory configResposistory)
+        public ConfigController(IConfigRespository configResposistory)
         {
             _configResposistory = configResposistory;
         }
@@ -118,6 +119,18 @@ namespace SOHU.MVC.Controllers
                 }
             }
             return Json(note);
+        }
+
+        public ActionResult GetTreeMenuDataTransferByCodeToList(string Code)
+        {
+            var data = _configResposistory.GetByCodeToList(Code);
+            var result = data.GenerateTree(item => item.Id, item => item.ParentId);
+            return Json(data.GenerateTree(item => item.Id, Item => Item.ParentId));
+        }
+
+        public IActionResult GetByCodeToList(string Code)
+        {
+            return Json(_configResposistory.GetByCodeToList(Code));
         }
     }
 }

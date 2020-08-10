@@ -23,6 +23,8 @@ namespace SOHU.Data.Models
         public virtual DbSet<MembershipPayment> MembershipPayment { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductConfig> ProductConfig { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<CartDetail> CartDetail { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -302,6 +304,66 @@ namespace SOHU.Data.Models
                 entity.Property(e => e.Title).HasMaxLength(4000);
 
                 entity.Property(e => e.Value).HasColumnType("money");
+            });
+
+            modelBuilder.Entity<Cart>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+                
+                entity.Property(e => e.Tax).HasColumnType("money");
+
+                entity.Property(e => e.Total).HasColumnType("money");
+
+                entity.Property(e => e.TotalDebt).HasColumnType("money");
+
+                entity.Property(e => e.TotalDiscount).HasColumnType("money");
+
+                entity.Property(e => e.TotalNoTax).HasColumnType("money");
+
+                entity.Property(e => e.TotalPaid).HasColumnType("money");
+
+                entity.Property(e => e.TotalShipCost).HasColumnType("money");
+
+                entity.Property(e => e.TotalTax).HasColumnType("money");
+
+                entity.Property(e => e.Gbpexchange)
+                   .HasColumnName("GBPExchange")
+                   .HasColumnType("money");
+
+                entity.Property(e => e.CurrencyId).HasColumnName("CurrencyID");
+
+                entity.Property(e => e.ParentId).HasColumnName("ParentID");
+            });
+
+            modelBuilder.Entity<CartDetail>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ParentId).HasColumnName("ParentID");
+
+                entity.Property(e => e.Tax).HasColumnType("money");
+
+                entity.Property(e => e.Total).HasColumnType("money");
+
+                entity.Property(e => e.TotalDiscount).HasColumnType("money");
+
+                entity.Property(e => e.TotalNoTax).HasColumnType("money");
+
+                entity.Property(e => e.TotalTax).HasColumnType("money");
+
+                entity.Property(e => e.Gbpexchange)
+                   .HasColumnName("GBPExchange")
+                   .HasColumnType("money");
+
+                entity.Property(e => e.CurrencyId).HasColumnName("CurrencyID");
+
+                entity.Property(e => e.CartId).HasColumnName("CartID");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.UnitId).HasColumnName("UnitID");
             });
 
             OnModelCreatingPartial(modelBuilder);

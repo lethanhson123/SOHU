@@ -12,9 +12,9 @@ namespace SOHU.MVC.Controllers
 {
     public class ProductController : BaseController
     {
-        private readonly IProductResposistory _productResposistory;
+        private readonly IProductRespository _productResposistory;
 
-        public ProductController(IProductResposistory productResposistory)
+        public ProductController(IProductRespository productResposistory)
         {
             _productResposistory = productResposistory;
         }
@@ -118,6 +118,24 @@ namespace SOHU.MVC.Controllers
                 }
             }
             return Json(note);
+        }
+
+        public IActionResult NewProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
+        }
+
+        public IActionResult TopProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
+        }
+
+        public IActionResult SaleProducts(int PageSize)
+        {
+            var model = _productResposistory.GetAllToList().OrderBy(item => item.DateCreated).Take(PageSize);
+            return PartialView("~/Views/Product/_List.cshtml", model);
         }
     }
 }

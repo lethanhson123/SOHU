@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css">
     <script src="~/plugins/jquery/jquery.min.js"></script>
     <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/plugins/toastr/toastr.min.js"></script>
@@ -30,6 +31,7 @@
     <script src="~/js/mustache.min.js"></script>
     <script src="~/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
     <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 </head>
 <body class="hold-transition sidebar-mini m-0">
     <div class="wrapper">
@@ -72,8 +74,6 @@
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="index3.html" class="brand-link">
-                <img src="~/images/logo.jpg" alt="Logo" class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
                 <span class="brand-text font-weight-light">Content Management System</span>
             </a>
 
@@ -118,13 +118,17 @@
     @RenderSection("Scripts", required: false)
     <script>
         $(document).ready(() => {
-            $.ajax({
+            @*$.ajax({
                 type: "GET",
                 url: "@Url.Action("MenuLeft","Menu")",
                 success: (res) => {
                     $("#userMenuLeft").empty();
                     $("#userMenuLeft").html(res);
                 }
+            });*@
+
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy'
             });
         });
     </script>

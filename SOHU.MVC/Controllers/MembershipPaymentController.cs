@@ -12,9 +12,9 @@ namespace SOHU.MVC.Controllers
 {
     public class MembershipPaymentController : BaseController
     {
-        private readonly IMembershipPaymentResposistory _menbershipPaymentResposistory;
+        private readonly IMembershipPaymentRespository _menbershipPaymentResposistory;
 
-        public MembershipPaymentController(IMembershipPaymentResposistory menbershipPaymentResposistory)
+        public MembershipPaymentController(IMembershipPaymentRespository menbershipPaymentResposistory)
         {
             _menbershipPaymentResposistory = menbershipPaymentResposistory;
         }
