@@ -3,9 +3,9 @@
 }
 @using SOHU.Data.DataTransferObject
 @using SOHU.Data.Models
-@using SOHU.Data.Respositories
+@using SOHU.Data.Repositories
 @using SOHU.Data.Helpers
-@inject IConfigRespository _configRespository
+@inject IConfigRepository _configRespository
 <div class="container-fluid px-0">
     @{
         var carousel = _configRespository.GetByCodeToList(AppGlobal.CarouselCode);
@@ -41,6 +41,7 @@
         <div class="col-md-4 h-100">
             <!--Fanpage-->
             <div class="fb-page" data-href="https://www.facebook.com/bkufcnguyenhuutholongan/" data-tabs="timeline" data-width="" data-height="500" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/bkufcnguyenhuutholongan/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/bkufcnguyenhuutholongan/">BK FC - THPT Nguyễn Hữu Thọ, Long An</a></blockquote></div>
+        </div>
     </div>
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

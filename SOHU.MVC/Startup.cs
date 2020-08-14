@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC
 {
@@ -32,14 +32,14 @@ namespace SOHU.MVC
 
             services.AddDbContext<SOHUContext>();
 
-            services.AddTransient<IMembershipRespository, MembershipRespository>();
-            services.AddTransient<IProductConfigRespository, ProductConfigRespository>();
-            services.AddTransient<IProductRespository, ProductRespository>();
-            services.AddTransient<IConfigRespository, ConfigRespository>();
-            services.AddTransient<IInvoicePaymentRespository, InvoicePaymentRespository>();
-            services.AddTransient<IInvoiceRespository, InvoiceRespository>();
-            services.AddTransient<IInvoiceDetailRespository, InvoiceDetailRespository>();
-            services.AddTransient<IMembershipPaymentRespository, MembershipPaymentRespository>();
+            services.AddTransient<IMembershipRepository, MembershipRepository>();
+            services.AddTransient<IProductConfigRepository, ProductConfigRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IConfigRepository, ConfigRepository>();
+            services.AddTransient<IInvoicePaymentRepository, InvoicePaymentRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IInvoiceDetailRepository, InvoiceDetailRepository>();
+            services.AddTransient<IMembershipPaymentRepository, MembershipPaymentRepository>();
 
             services.AddControllersWithViews();
 

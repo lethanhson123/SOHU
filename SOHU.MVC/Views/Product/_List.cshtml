@@ -1,6 +1,6 @@
 ﻿@using SOHU.Data.DataTransferObject
 @using SOHU.Data.Models
-@using SOHU.Data.Respositories
+@using SOHU.Data.Repositories
 @using SOHU.Data.Helpers
 @model IEnumerable<Product>
 <link rel="stylesheet" href="~/css/theme-shop.css">
@@ -24,10 +24,14 @@
                             <a href="@url"><h5 class="card-title">@item.Title</h5></a>
                             <p class="card-text text-primary h5">@item.Price?.ToString("N2")</p>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer p-0">
                             <div class="row">
-                                <a asp-action="Create" asp-controller="Cart" class="col-6 w-90 p-1 btn btn-primary">Add to cart</a>
-                                <a href="@url" class="col-6 w-90 btn btn-success p-1">View more</a>
+                                <div class="col-md-6 p-1">
+                                    <a asp-action="AddProduct" asp-controller="Cart" class="w-100 btn btn-primary">Add to cart</a>
+                                </div>
+                                <div class="col-md-6 p-1">
+                                    <a href="@url" class="w-100 btn btn-success">View more</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,7 +47,7 @@
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
             </ul>
         </div>
     </div>

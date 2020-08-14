@@ -3,17 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public class InvoiceDetailRespository : Respository<InvoiceDetail>, IInvoiceDetailRespository
+    public class InvoicePaymentRepository : Repository<InvoicePayment>, IInvoicePaymentRepository
     {
         private readonly SOHUContext _context;
 
-        public InvoiceDetailRespository(SOHUContext context) : base(context)
+        public InvoicePaymentRepository(SOHUContext context) : base(context)
         {
             _context = context;
         }
-
-
     }
 }

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public interface IInvoiceRespository : IRespository<Invoice>
+    public interface IInvoiceRepository : IRepository<Invoice>
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SOHU.Data.Models;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public interface IRespository<T> where T : BaseModel
+    public interface IRepository<T> where T : BaseModel
     {
         public Task<int> AsyncCreate(T model);
 
@@ -19,6 +19,8 @@ namespace SOHU.Data.Respositories
         public Task<T> AsyncGetByID(int ID);
 
         public int Create(T model);
+
+        public int Create(T model, out T result);
 
         public int Update(int ID, T model);
 

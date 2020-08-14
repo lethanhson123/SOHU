@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using SOHU.Data.Enum;
 using SOHU.Data.Helpers;
 using SOHU.Data.Models;
-using SOHU.Data.Respositories;
+using SOHU.Data.Repositories;
 
 namespace SOHU.MVC.Controllers
 {
     public class InvoiceDetailDetailController : BaseController
     {
-        private readonly IInvoiceDetailRespository _invoiceDetailResposistory;
+        private readonly IInvoiceDetailRepository _invoiceDetailResposistory;
 
-        public InvoiceDetailDetailController(IInvoiceDetailRespository invoiceDetailResposistory)
+        public InvoiceDetailDetailController(IInvoiceDetailRepository invoiceDetailResposistory)
         {
             _invoiceDetailResposistory = invoiceDetailResposistory;
         }

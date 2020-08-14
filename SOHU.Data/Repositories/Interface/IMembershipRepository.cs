@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public interface IMembershipRespository : IRespository<Membership>
+    public interface IMembershipRepository : IRepository<Membership>
     {
         public bool IsValid(string account, string password);
     }

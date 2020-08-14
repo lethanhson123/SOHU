@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public class Respository<T> : IRespository<T> where T : BaseModel
+    public class Repository<T> : IRepository<T> where T : BaseModel
     {
 
         private readonly SOHUContext _context;
 
-        public Respository(SOHUContext context)
+        public Repository(SOHUContext context)
         {
             _context = context;
         }
@@ -99,6 +99,14 @@ namespace SOHU.Data.Respositories
         {
             var result = _context.Set<T>().Skip(Page * PageSize).Take(PageSize).ToList();
             return result;
+        }
+
+        public int Create(T model, out T result)
+        {
+            _context.Set<T>().Add(model);
+            var temp =  _context.SaveChanges();
+            result = model;
+            return temp;
         }
     }
 }

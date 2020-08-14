@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SOHU.Data.Respositories
+namespace SOHU.Data.Repositories
 {
-    public class ConfigRespository : Respository<Config>, IConfigRespository
+    public class ConfigRepository : Repository<Config>, IConfigRepository
     {
         private readonly SOHUContext _context;
 
-        public ConfigRespository(SOHUContext context) : base(context)
+        public ConfigRepository(SOHUContext context) : base(context)
         {
             _context = context;
         }
