@@ -40,6 +40,8 @@ namespace SOHU.MVC
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<IInvoiceDetailRepository, InvoiceDetailRepository>();
             services.AddTransient<IMembershipPaymentRepository, MembershipPaymentRepository>();
+            services.AddTransient<ICartRepository, CartRepository>();
+            services.AddTransient<ICartDetailRepository, CartDetailRepository>();
 
             services.AddControllersWithViews();
 

@@ -13,7 +13,16 @@ namespace SOHU.MVC.Controllers
         {
             get
             {
-                int.TryParse(Request.Cookies["UserID"], out int result);
+                int.TryParse(Request.Cookies["UserID"]?.ToString(), out int result);
+                return result;
+            }
+        }
+
+        public int CartID
+        {
+            get
+            {
+                int.TryParse(Request.Cookies["CartID"]?.ToString(), out int result);
                 return result;
             }
         }

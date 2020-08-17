@@ -48,7 +48,14 @@ namespace SOHU.Data.Helpers
                 PropertyInfo[] props = result.GetType().GetProperties();
                 foreach (var prop in props)
                 {
-                    prop.SetValue(result, prop.GetValue(obj));
+                    try
+                    {
+                        prop.SetValue(result, prop.GetValue(obj));
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
             return result;

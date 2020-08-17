@@ -20,5 +20,12 @@ namespace SOHU.Data.Models
         public decimal? Total { get; set; }
         public int? CurrencyId { get; set; }
         public decimal? Gbpexchange { get; set; }
+
+        public void InitValue()
+        {
+            this.TotalTax = this.UnitPrice * this.Quantity * this.Tax;
+            this.TotalNoTax = this.UnitPrice * this.Quantity;
+            this.Total = this.TotalNoTax + this.Tax - this.TotalDiscount;
+        }
     }
 }

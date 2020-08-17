@@ -110,39 +110,8 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="header-nav-features">
-                                    <div class="header-nav-feature header-nav-features-cart header-nav-features-cart-big d-inline-flex ml-2" data-sticky-header-style="{'minResolution': 991}" data-sticky-header-style-active="{'top': '48px'}" data-sticky-header-style-deactive="{'top': '0'}">
-                                        <a href="#" class="header-nav-features-toggle">
-                                            <img src="~/img/icons/icon-cart-big.svg" height="34" alt="" class="header-nav-top-icon-img">
-                                            <span class="cart-info">
-                                                <span class="cart-qty">0</span>
-                                            </span>
-                                        </a>
-                                        <div class="header-nav-features-dropdown" id="headerTopCartDropdown">
-                                            <ol class="mini-products-list">
-                                                <li class="item">
-                                                    <a href="#" title="Camera X1000" class="product-image"><img src="img/products/product-1.jpg" alt="Camera X1000"></a>
-                                                    <div class="product-details">
-                                                        <p class="product-name">
-                                                            <a href="#">Camera X1000 </a>
-                                                        </p>
-                                                        <p class="qty-price">
-                                                            1X <span class="price">$890</span>
-                                                        </p>
-                                                        <a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                            <div class="totals">
-                                                <span class="label">Total:</span>
-                                                <span class="price-total"><span class="price">$890</span></span>
-                                            </div>
-                                            <div class="actions">
-                                                <a class="btn btn-dark" href="#">View Cart</a>
-                                                <a class="btn btn-primary" href="#">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="header-nav-features" id="cart">
+
                                 </div>
                             </div>
                         </div>
@@ -269,27 +238,41 @@
             </div>
         </footer>
     </div>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
-    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
-    <script src="vendor/popper/umd/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/common/common.min.js"></script>
-    <script src="vendor/jquery.validation/jquery.validate.min.js"></script>
-    <script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
-    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
-    <script src="vendor/isotope/jquery.isotope.min.js"></script>
-    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="vendor/vide/jquery.vide.min.js"></script>
-    <script src="vendor/vivus/vivus.min.js"></script>
-    <script src="vendor/bootstrap-star-rating/js/star-rating.min.js"></script>
-    <script src="vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/views/view.shop.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/theme.init.js"></script>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="~/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+    <script src="~/vendor/popper/umd/popper.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/common/common.min.js"></script>
+    <script src="~/vendor/jquery.validation/jquery.validate.min.js"></script>
+    <script src="~/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="~/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="~/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="~/vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="~/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/vendor/vide/jquery.vide.min.js"></script>
+    <script src="~/vendor/vivus/vivus.min.js"></script>
+    <script src="~/vendor/bootstrap-star-rating/js/star-rating.min.js"></script>
+    <script src="~/vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("TopView","CartDetail")",
+                success: (res) => {
+                    $("#cart").empty();
+                    $("#cart").html(res);
+                }
+            });
+        });
+    </script>
+
+    <script src="~/js/theme.js"></script>
+    <script src="~/js/views/view.shop.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/theme.init.js"></script>
 </body>
 </html>

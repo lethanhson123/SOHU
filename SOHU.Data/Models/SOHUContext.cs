@@ -337,7 +337,7 @@ namespace SOHU.Data.Models
 
             modelBuilder.Entity<CartDetail>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("ID").UseIdentityColumn();
 
                 entity.Property(e => e.ParentId).HasColumnName("ParentID");
 

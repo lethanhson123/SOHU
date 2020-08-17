@@ -27,7 +27,7 @@
                         <div class="card-footer p-0">
                             <div class="row">
                                 <div class="col-md-6 p-1">
-                                    <a asp-action="AddProduct" asp-controller="Cart" class="w-100 btn btn-primary">Add to cart</a>
+                                    <button onclick="addToCart(@item.Id,1)" class="w-100 btn btn-primary">Add to cart</button>
                                 </div>
                                 <div class="col-md-6 p-1">
                                     <a href="@url" class="w-100 btn btn-success">View more</a>
@@ -52,3 +52,21 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    function addToCart(ProductID, Quantity) {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("AddProduct","Cart")",
+            data: {
+                ProductID: ProductID,
+                Quantity: Quantity
+            },
+            success: (res) => {
+                window.location.reload();
+            }
+        })
+    }
+
+</script>
