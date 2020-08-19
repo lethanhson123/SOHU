@@ -16,6 +16,11 @@ namespace SOHU.Data.Repositories
             _context = context;
         }
 
+        public Membership GetByAccount(string Account)
+        {
+            return _context.Membership.FirstOrDefault(item => item.Account == Account);
+        }
+
         public bool IsValid(string account, string password)
         {
             var membership = _context.Membership.FirstOrDefault(user => user.Account.Equals(account));

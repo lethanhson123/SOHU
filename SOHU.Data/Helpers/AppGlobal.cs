@@ -343,6 +343,24 @@ namespace SOHU.Data.Helpers
             }
         }
 
+        public static string TokenSecretKey
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("TokenSecretKey").Value;
+            }
+        }
+
+        public static int TokenExpireMinute
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return int.Parse(builder.Build().GetSection("AppSettings").GetSection("TokenExpireMinute").Value);
+            }
+        }
+
         #endregion
     }
 }
