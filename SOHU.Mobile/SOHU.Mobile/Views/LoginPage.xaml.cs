@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using static Android.Provider.CalendarContract;
 
 namespace SOHU.Mobile.Views
 {
@@ -7,6 +8,7 @@ namespace SOHU.Mobile.Views
         public LoginPage()
         {
             InitializeComponent();
+            LoginForm.BackgroundColor = Color.FromRgba(255, 255, 255, 0.4);
         }
     }
 }
