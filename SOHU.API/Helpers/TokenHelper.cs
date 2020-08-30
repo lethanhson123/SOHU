@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using SOHU.Data.Helpers;
 using SOHU.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace SOHU.Data.Helpers
+namespace SOHU.API.Helpers
 {
     public class TokenHelper
     {

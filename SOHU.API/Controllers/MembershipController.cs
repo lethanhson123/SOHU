@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SOHU.API.Helpers;
 using SOHU.API.RequestModel;
 using SOHU.API.ResponseModel;
 using SOHU.Data.Helpers;

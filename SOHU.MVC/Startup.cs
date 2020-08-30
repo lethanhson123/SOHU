@@ -44,8 +44,6 @@ namespace SOHU.MVC
             services.AddTransient<ICartDetailRepository, CartDetailRepository>();
 
             services.AddControllersWithViews();
-
-            services.AddGleamTech();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -59,7 +57,6 @@ namespace SOHU.MVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            app.UseGleamTech();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
