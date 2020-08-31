@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
+using GleamTech.FileUltimate.AspNet;
+using GleamTech.FileUltimate.AspNet.UI;
 using SOHU.Data.Models;
 using SOHU.Data.Repositories;
 
@@ -44,6 +46,8 @@ namespace SOHU.MVC
             services.AddTransient<ICartDetailRepository, CartDetailRepository>();
 
             services.AddControllersWithViews();
+
+            services.AddGleamTech();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,6 +61,8 @@ namespace SOHU.MVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            app.UseGleamTech();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
