@@ -1,4 +1,5 @@
-﻿using SOHU.Data.Helpers;
+﻿using SOHU.Data.Enum;
+using SOHU.Data.Helpers;
 using SOHU.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,22 @@ namespace SOHU.Data.Repositories
                 }
             }
             return false;
+        }
+
+        public void InitBeforeSave(Membership model, InitType initType)
+        {
+            switch (initType)
+            {
+                case InitType.Insert:
+                    model.ConcatFullname();
+                    model.InitDefaultValue();
+                    model.EncryptPassword();
+                    break;
+                case InitType.Update:
+                    model.ConcatFullname();
+                    break;
+            }
+            
         }
     }
 }
