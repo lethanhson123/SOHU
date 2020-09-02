@@ -52,5 +52,10 @@ namespace SOHU.API.Controllers
                 return null;
             }
         }
+
+        public ActionResult<string> ObjectToJson(object obj)
+        {
+            return Content(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
+        }
     }
 }

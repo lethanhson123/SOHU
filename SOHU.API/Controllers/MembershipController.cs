@@ -39,8 +39,7 @@ namespace SOHU.API.Controllers
                     ExpireMinute = AppGlobal.TokenExpireMinute,
                 };
 
-                var json = JsonConvert.SerializeObject(token);
-                return Content(json);
+                return ObjectToJson(token);
             }
             return Content(result);
         }
@@ -49,8 +48,8 @@ namespace SOHU.API.Controllers
         public ActionResult<string> GetDetail(string userName)
         {
             var user = _membershipRepository.GetByAccount(userName) ?? new Membership();
-            var userJson = JsonConvert.SerializeObject(user);
-            return Content(userJson);
+
+            return ObjectToJson(user);
         }
 
         [HttpPost]
@@ -58,6 +57,7 @@ namespace SOHU.API.Controllers
         {
             Result routeResult;
             int result = 0;
+
             if (model.Id > 0)
             {
                 model.Initialization(InitType.Update, RequestUserID);
@@ -66,6 +66,7 @@ namespace SOHU.API.Controllers
                 _membershipRepository.InitBeforeSave(model, InitType.Update);
 
                 result = _membershipRepository.Update(model.Id, model);
+
                 if (result > 0)
                 {
                     routeResult = new Result()
@@ -103,8 +104,7 @@ namespace SOHU.API.Controllers
                 }
             }
 
-            var json = JsonConvert.SerializeObject(routeResult);
-            return Content(json);
+            return ObjectToJson(routeResult);
         }
 
         
