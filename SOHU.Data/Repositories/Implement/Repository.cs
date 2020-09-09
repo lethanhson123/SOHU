@@ -10,7 +10,6 @@ namespace SOHU.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseModel
     {
-
         private readonly SOHUContext _context;
 
         public Repository(SOHUContext context)

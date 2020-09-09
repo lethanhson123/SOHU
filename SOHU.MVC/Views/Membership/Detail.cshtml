@@ -108,7 +108,7 @@
     function onSaveChange() {
         $.ajax({
             type: 'POST',
-            url: "@Url.Action("SaveChange","Config")",
+            url: "@Url.Action("SaveChange","Membership")",
             data: $("#configInfor").serialize(),
             success: (res) => {
                 var messageType = res.split('-')[0];
